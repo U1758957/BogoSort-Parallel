@@ -13,9 +13,25 @@ import java.util.Arrays;
  */
 public class BogoMC {
 
+    /**
+     * Main method
+     * @param args flag and size respectively. If no arguments, sets default values of false and 8.
+     * @throws InterruptedException if the main thread is interrupted / killed.
+     */
     public static void main(String[] args) throws InterruptedException {
 
-        GenerateArray generateArray = new GenerateArray(false, 5);
+        int size;
+        boolean flag;
+
+        if (args.length > 0) {
+            flag = Boolean.parseBoolean(args[0]);
+            size = Integer.parseInt(args[1]);
+        } else {
+            flag = false;
+            size = 8;
+        }
+
+        GenerateArray generateArray = new GenerateArray(flag, size);
 
         int[] array = generateArray.getNewArray();
 
